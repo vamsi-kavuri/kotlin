@@ -21,6 +21,7 @@ import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.newvfs.impl.VfsRootAccess;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.TestOnly;
 import org.jetbrains.kotlin.test.KotlinTestUtils;
 import org.jetbrains.kotlin.test.TestJdkKind;
 
@@ -46,6 +47,11 @@ public class PluginTestCaseBase {
     @NotNull
     public static Sdk mockJdk() {
         return getSdk("compiler/testData/mockJDK/jre", "Mock JDK");
+    }
+
+    @TestOnly
+    public static Sdk mockJdk9() {
+        return getSdk("compiler/testData/mockJDK-1.9/jre", "Mock JDK 9");
     }
 
     @NotNull
