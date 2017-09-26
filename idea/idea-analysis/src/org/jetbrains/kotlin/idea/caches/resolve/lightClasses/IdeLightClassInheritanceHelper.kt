@@ -28,11 +28,15 @@ import org.jetbrains.kotlin.psi.*
 
 class IdeLightClassInheritanceHelper : LightClassInheritanceHelper {
     override fun isInheritor(
-            lightClass: KtLightClassForSourceDeclaration,
+            lightClass: PsiClass,
             baseClass: PsiClass,
             checkDeep: Boolean
     ): ImpreciseResolveResult {
-        val classOrObject = lightClass.kotlinOrigin
+        val classOrObject = when (lightClass) {
+            is KtLightClassForSourceDeclaration -> lightClass.kotlinOrigin
+            is KtFakeLightClass -> lightClass.ktClass
+            else -> return UNSURE
+        }
         val entries = classOrObject.superTypeListEntries
         val hasSuperClass = entries.any { it is KtSuperTypeCallEntry }
         if (baseClass.qualifiedName == classOrObject.defaultJavaAncestorQualifiedName() && (!hasSuperClass || checkDeep)) {
