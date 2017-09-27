@@ -18,42 +18,67 @@ package org.jetbrains.kotlin.idea.caches.resolve.lightClasses
 
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElementFactory
-import com.intellij.psi.PsiFile
+import com.intellij.psi.PsiMethod
+import com.intellij.psi.PsiType
 import com.intellij.psi.impl.light.AbstractLightClass
+import com.intellij.psi.impl.light.LightMethod
+import org.jetbrains.kotlin.asJava.classes.KtLightClass
 import org.jetbrains.kotlin.asJava.classes.KtLightClassForSourceDeclaration
 import org.jetbrains.kotlin.asJava.classes.LightClassInheritanceHelper
+import org.jetbrains.kotlin.asJava.elements.KtLightElement
 import org.jetbrains.kotlin.descriptors.ClassDescriptor
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.caches.resolve.resolveToDescriptorIfAny
+import org.jetbrains.kotlin.load.java.structure.LightClassOriginKind
 import org.jetbrains.kotlin.psi.KtClassOrObject
+import org.jetbrains.kotlin.psi.KtNamedDeclaration
 import org.jetbrains.kotlin.psi.psiUtil.containingClassOrObject
 import org.jetbrains.kotlin.resolve.DescriptorUtils
-import javax.swing.Icon
 
 // Used as a placeholder when actual light class does not exist
-class KtFakeLightClass(val ktClass: KtClassOrObject) : AbstractLightClass(ktClass.manager, KotlinLanguage.INSTANCE) {
-    private val _delegate by lazy { PsiElementFactory.SERVICE.getInstance(ktClass.project).createClass(ktClass.name ?: "") }
-    private val _containingClass by lazy { ktClass.containingClassOrObject?.let { KtFakeLightClass(it) } }
+class KtFakeLightClass(override val kotlinOrigin: KtClassOrObject) :
+        AbstractLightClass(kotlinOrigin.manager, KotlinLanguage.INSTANCE),
+        KtLightClass {
+    private val _delegate by lazy { PsiElementFactory.SERVICE.getInstance(kotlinOrigin.project).createClass(kotlinOrigin.name ?: "") }
+    private val _containingClass by lazy { kotlinOrigin.containingClassOrObject?.let { KtFakeLightClass(it) } }
+
+    override val clsDelegate get() = _delegate
+    override val originKind get() = LightClassOriginKind.SOURCE
 
     override fun getDelegate() = _delegate
-    override fun copy() = KtFakeLightClass(ktClass)
+    override fun copy() = KtFakeLightClass(kotlinOrigin)
 
-    override fun getQualifiedName() = ktClass.fqName?.asString()
+    override fun getQualifiedName() = kotlinOrigin.fqName?.asString()
     override fun getContainingClass() = _containingClass
-    override fun getNavigationElement() = ktClass
-    override fun getIcon(flags: Int) = ktClass.getIcon(flags)
-    override fun getContainingFile() = ktClass.containingFile
+    override fun getNavigationElement() = kotlinOrigin
+    override fun getIcon(flags: Int) = kotlinOrigin.getIcon(flags)
+    override fun getContainingFile() = kotlinOrigin.containingFile
+    override fun getUseScope() = kotlinOrigin.useScope
 
     override fun isInheritor(baseClass: PsiClass, checkDeep: Boolean): Boolean {
         LightClassInheritanceHelper.getService(project).isInheritor(this, baseClass, checkDeep).ifSure { return it }
 
         val baseKtClass = when (baseClass) {
             is KtLightClassForSourceDeclaration -> baseClass.kotlinOrigin
-            is KtFakeLightClass -> baseClass.ktClass
+            is KtFakeLightClass -> baseClass.kotlinOrigin
             else -> return false
         }
         val baseDescriptor = baseKtClass.resolveToDescriptorIfAny() as? ClassDescriptor ?: return false
-        val thisDescriptor = ktClass.resolveToDescriptorIfAny() as? ClassDescriptor ?: return false
+        val thisDescriptor = kotlinOrigin.resolveToDescriptorIfAny() as? ClassDescriptor ?: return false
         return if (checkDeep) DescriptorUtils.isSubclass(thisDescriptor, baseDescriptor) else DescriptorUtils.isDirectSubclass(thisDescriptor, baseDescriptor)
     }
+}
+
+class KtFakeLightMethod(val ktDeclaration: KtNamedDeclaration) : LightMethod (
+        ktDeclaration.manager,
+        PsiElementFactory.SERVICE.getInstance(ktDeclaration.project).createMethod(ktDeclaration.name ?: "", PsiType.VOID),
+        KtFakeLightClass(ktDeclaration.containingClassOrObject!!),
+        KotlinLanguage.INSTANCE
+), KtLightElement<KtNamedDeclaration, PsiMethod> {
+    override val kotlinOrigin get() = ktDeclaration
+    override val clsDelegate get() = myMethod
+
+    override fun getNavigationElement() = ktDeclaration
+    override fun getIcon(flags: Int) = ktDeclaration.getIcon(flags)
+    override fun getUseScope() = ktDeclaration.useScope
 }

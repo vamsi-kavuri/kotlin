@@ -483,13 +483,13 @@ fun getOutermostClassOrObject(classOrObject: KtClassOrObject): KtClassOrObject {
 
 interface LightClassInheritanceHelper {
     fun isInheritor(
-            lightClass: PsiClass,
+            lightClass: KtLightClass,
             baseClass: PsiClass,
             checkDeep: Boolean
     ): ImpreciseResolveResult
 
     object NoHelp : LightClassInheritanceHelper {
-        override fun isInheritor(lightClass: PsiClass, baseClass: PsiClass, checkDeep: Boolean) = UNSURE
+        override fun isInheritor(lightClass: KtLightClass, baseClass: PsiClass, checkDeep: Boolean) = UNSURE
     }
 
     companion object {

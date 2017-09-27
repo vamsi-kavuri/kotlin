@@ -16,7 +16,6 @@
 
 package org.jetbrains.kotlin.idea.search.ideaExtensions
 
-import com.intellij.codeInsight.navigation.MethodImplementationsSearch
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiMethod
@@ -34,6 +33,7 @@ import org.jetbrains.kotlin.asJava.elements.KtLightMethod
 import org.jetbrains.kotlin.asJava.toLightClass
 import org.jetbrains.kotlin.asJava.unwrapped
 import org.jetbrains.kotlin.idea.search.declarationsSearch.forEachImplementation
+import org.jetbrains.kotlin.idea.search.declarationsSearch.forEachOverridingMethod
 import org.jetbrains.kotlin.idea.util.application.runReadAction
 import org.jetbrains.kotlin.psi.*
 import org.jetbrains.kotlin.psi.psiUtil.contains
@@ -132,27 +132,21 @@ class KotlinDefinitionsSearcher : QueryExecutor<PsiElement, DefinitionsScopedSea
             return processPropertyImplementationsMethods(accessorsPsiMethods, scope, consumer)
         }
 
-        fun processPropertyImplementationsMethods(accessors: LightClassUtil.PropertyAccessorsPsiMethods, scope: SearchScope, consumer: Processor<PsiElement>): Boolean {
-            for (method in accessors) {
-                val implementations = ArrayList<PsiMethod>()
-                MethodImplementationsSearch.getOverridingMethods(method, implementations, scope)
+        fun processPropertyImplementationsMethods(accessors: Iterable<PsiMethod>, scope: SearchScope, consumer: Processor<PsiElement>): Boolean {
+            return accessors.all { method ->
+                method.forEachOverridingMethod(scope) { implementation ->
+                    if (isDelegated(implementation)) return@forEachOverridingMethod true
 
-                for (implementation in implementations) {
-                    if (isDelegated(implementation)) continue
-
-                    val mirrorElement = (implementation as? KtLightMethod)?.kotlinOrigin
-                    val elementToProcess = when(mirrorElement) {
-                        is KtProperty, is KtParameter -> mirrorElement
-                        is KtPropertyAccessor -> if (mirrorElement.parent is KtProperty) mirrorElement.parent else implementation
+                    val unwrappedElement = implementation.unwrapped
+                    val elementToProcess = when(unwrappedElement) {
+                        is KtProperty, is KtParameter -> unwrappedElement
+                        is KtPropertyAccessor -> if (unwrappedElement.parent is KtProperty) unwrappedElement.parent else implementation
                         else -> implementation
                     }
 
-                    if (!consumer.process(elementToProcess)) {
-                        return false
-                    }
+                    consumer.process(elementToProcess)
                 }
             }
-            return true
         }
     }
 }
