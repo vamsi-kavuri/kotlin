@@ -20,18 +20,18 @@ import org.jetbrains.kotlin.protobuf.MessageLite
 import org.jetbrains.kotlin.serialization.ProtoBuf
 import org.jetbrains.kotlin.serialization.deserialization.NameResolver
 
-class SinceKotlinInfoTable private constructor(private val infos: List<ProtoBuf.SinceKotlinInfo>) {
-    operator fun get(id: Int): ProtoBuf.SinceKotlinInfo? = infos.getOrNull(id)
+class RequireLanguageVersionTable private constructor(private val infos: List<ProtoBuf.RequireLanguageVersion>) {
+    operator fun get(id: Int): ProtoBuf.RequireLanguageVersion? = infos.getOrNull(id)
 
     companion object {
-        val EMPTY = SinceKotlinInfoTable(emptyList())
+        val EMPTY = RequireLanguageVersionTable(emptyList())
 
-        fun create(table: ProtoBuf.SinceKotlinInfoTable): SinceKotlinInfoTable =
-                if (table.infoCount == 0) EMPTY else SinceKotlinInfoTable(table.infoList)
+        fun create(table: ProtoBuf.RequireLanguageVersionTable): RequireLanguageVersionTable =
+                if (table.requirementCount == 0) EMPTY else RequireLanguageVersionTable(table.requirementList)
     }
 }
 
-class SinceKotlinInfo(
+class RequireLanguageVersion(
         val version: Version,
         val level: DeprecationLevel,
         val errorCode: Int?,
@@ -90,13 +90,13 @@ class SinceKotlinInfo(
             "since $version $level" + (if (errorCode != null) " error $errorCode" else "") + (if (message != null) ": $message" else "")
 
     companion object {
-        fun create(proto: MessageLite, nameResolver: NameResolver, table: SinceKotlinInfoTable): SinceKotlinInfo? {
+        fun create(proto: MessageLite, nameResolver: NameResolver, table: RequireLanguageVersionTable): RequireLanguageVersion? {
             val id = when (proto) {
-                is ProtoBuf.Class -> if (proto.hasSinceKotlinInfo()) proto.sinceKotlinInfo else return null
-                is ProtoBuf.Constructor -> if (proto.hasSinceKotlinInfo()) proto.sinceKotlinInfo else return null
-                is ProtoBuf.Function -> if (proto.hasSinceKotlinInfo()) proto.sinceKotlinInfo else return null
-                is ProtoBuf.Property -> if (proto.hasSinceKotlinInfo()) proto.sinceKotlinInfo else return null
-                is ProtoBuf.TypeAlias -> if (proto.hasSinceKotlinInfo()) proto.sinceKotlinInfo else return null
+                is ProtoBuf.Class -> if (proto.hasRequireLanguageVersion()) proto.requireLanguageVersion else return null
+                is ProtoBuf.Constructor -> if (proto.hasRequireLanguageVersion()) proto.requireLanguageVersion else return null
+                is ProtoBuf.Function -> if (proto.hasRequireLanguageVersion()) proto.requireLanguageVersion else return null
+                is ProtoBuf.Property -> if (proto.hasRequireLanguageVersion()) proto.requireLanguageVersion else return null
+                is ProtoBuf.TypeAlias -> if (proto.hasRequireLanguageVersion()) proto.requireLanguageVersion else return null
                 else -> throw IllegalStateException("Unexpected declaration: ${proto::class.java}")
             }
 
@@ -108,16 +108,16 @@ class SinceKotlinInfo(
             )
 
             val level = when (info.level!!) {
-                ProtoBuf.SinceKotlinInfo.Level.WARNING -> DeprecationLevel.WARNING
-                ProtoBuf.SinceKotlinInfo.Level.ERROR -> DeprecationLevel.ERROR
-                ProtoBuf.SinceKotlinInfo.Level.HIDDEN -> DeprecationLevel.HIDDEN
+                ProtoBuf.RequireLanguageVersion.Level.WARNING -> DeprecationLevel.WARNING
+                ProtoBuf.RequireLanguageVersion.Level.ERROR -> DeprecationLevel.ERROR
+                ProtoBuf.RequireLanguageVersion.Level.HIDDEN -> DeprecationLevel.HIDDEN
             }
 
             val errorCode = if (info.hasErrorCode()) info.errorCode else null
 
             val message = if (info.hasMessage()) nameResolver.getString(info.message) else null
 
-            return SinceKotlinInfo(version, level, errorCode, message)
+            return RequireLanguageVersion(version, level, errorCode, message)
         }
     }
 }

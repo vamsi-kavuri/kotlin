@@ -73,8 +73,8 @@ class DeserializedClassDescriptor(
             (containingDeclaration as? DeserializedClassDescriptor)?.thisAsProtoContainer
     )
 
-    val sinceKotlinInfo: SinceKotlinInfo?
-        get() = SinceKotlinInfo.create(classProto, c.nameResolver, c.sinceKotlinInfoTable)
+    val requireLanguageVersion: RequireLanguageVersion?
+        get() = RequireLanguageVersion.create(classProto, c.nameResolver, c.requireLanguageVersionTable)
 
     override val annotations =
             if (!Flags.HAS_ANNOTATIONS.get(classProto.flags)) {

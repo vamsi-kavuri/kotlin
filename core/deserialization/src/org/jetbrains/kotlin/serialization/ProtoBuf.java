@@ -8120,30 +8120,30 @@ public final class ProtoBuf {
     org.jetbrains.kotlin.serialization.ProtoBuf.TypeTable getTypeTable();
 
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    boolean hasSinceKotlinInfo();
+    boolean hasRequireLanguageVersion();
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    int getSinceKotlinInfo();
+    int getRequireLanguageVersion();
 
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
      */
-    boolean hasSinceKotlinInfoTable();
+    boolean hasRequireLanguageVersionTable();
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
      */
-    org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable getSinceKotlinInfoTable();
+    org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable getRequireLanguageVersionTable();
   }
   /**
    * Protobuf type {@code org.jetbrains.kotlin.serialization.Class}
@@ -8345,18 +8345,18 @@ public final class ProtoBuf {
             }
             case 248: {
               bitField0_ |= 0x00000010;
-              sinceKotlinInfo_ = input.readInt32();
+              requireLanguageVersion_ = input.readInt32();
               break;
             }
             case 258: {
-              org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.Builder subBuilder = null;
+              org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.Builder subBuilder = null;
               if (((bitField0_ & 0x00000020) == 0x00000020)) {
-                subBuilder = sinceKotlinInfoTable_.toBuilder();
+                subBuilder = requireLanguageVersionTable_.toBuilder();
               }
-              sinceKotlinInfoTable_ = input.readMessage(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.PARSER, extensionRegistry);
+              requireLanguageVersionTable_ = input.readMessage(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(sinceKotlinInfoTable_);
-                sinceKotlinInfoTable_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(requireLanguageVersionTable_);
+                requireLanguageVersionTable_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000020;
               break;
@@ -8928,42 +8928,42 @@ public final class ProtoBuf {
       return typeTable_;
     }
 
-    public static final int SINCEKOTLININFO_FIELD_NUMBER = 31;
-    private int sinceKotlinInfo_;
+    public static final int REQUIRE_LANGUAGE_VERSION_FIELD_NUMBER = 31;
+    private int requireLanguageVersion_;
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    public boolean hasSinceKotlinInfo() {
+    public boolean hasRequireLanguageVersion() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    public int getSinceKotlinInfo() {
-      return sinceKotlinInfo_;
+    public int getRequireLanguageVersion() {
+      return requireLanguageVersion_;
     }
 
-    public static final int SINCE_KOTLIN_INFO_TABLE_FIELD_NUMBER = 32;
-    private org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable sinceKotlinInfoTable_;
+    public static final int REQUIRE_LANGUAGE_VERSION_TABLE_FIELD_NUMBER = 32;
+    private org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable requireLanguageVersionTable_;
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
      */
-    public boolean hasSinceKotlinInfoTable() {
+    public boolean hasRequireLanguageVersionTable() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
      */
-    public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable getSinceKotlinInfoTable() {
-      return sinceKotlinInfoTable_;
+    public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable getRequireLanguageVersionTable() {
+      return requireLanguageVersionTable_;
     }
 
     private void initFields() {
@@ -8981,8 +8981,8 @@ public final class ProtoBuf {
       enumEntry_ = java.util.Collections.emptyList();
       sealedSubclassFqName_ = java.util.Collections.emptyList();
       typeTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.TypeTable.getDefaultInstance();
-      sinceKotlinInfo_ = 0;
-      sinceKotlinInfoTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance();
+      requireLanguageVersion_ = 0;
+      requireLanguageVersionTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -9111,10 +9111,10 @@ public final class ProtoBuf {
         output.writeMessage(30, typeTable_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(31, sinceKotlinInfo_);
+        output.writeInt32(31, requireLanguageVersion_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeMessage(32, sinceKotlinInfoTable_);
+        output.writeMessage(32, requireLanguageVersionTable_);
       }
       extensionWriter.writeUntil(200, output);
       output.writeRawBytes(unknownFields);
@@ -9214,11 +9214,11 @@ public final class ProtoBuf {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += org.jetbrains.kotlin.protobuf.CodedOutputStream
-          .computeInt32Size(31, sinceKotlinInfo_);
+          .computeInt32Size(31, requireLanguageVersion_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += org.jetbrains.kotlin.protobuf.CodedOutputStream
-          .computeMessageSize(32, sinceKotlinInfoTable_);
+          .computeMessageSize(32, requireLanguageVersionTable_);
       }
       size += extensionsSerializedSize();
       size += unknownFields.size();
@@ -9342,9 +9342,9 @@ public final class ProtoBuf {
         bitField0_ = (bitField0_ & ~0x00001000);
         typeTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.TypeTable.getDefaultInstance();
         bitField0_ = (bitField0_ & ~0x00002000);
-        sinceKotlinInfo_ = 0;
+        requireLanguageVersion_ = 0;
         bitField0_ = (bitField0_ & ~0x00004000);
-        sinceKotlinInfoTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance();
+        requireLanguageVersionTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance();
         bitField0_ = (bitField0_ & ~0x00008000);
         return this;
       }
@@ -9438,11 +9438,11 @@ public final class ProtoBuf {
         if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.sinceKotlinInfo_ = sinceKotlinInfo_;
+        result.requireLanguageVersion_ = requireLanguageVersion_;
         if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.sinceKotlinInfoTable_ = sinceKotlinInfoTable_;
+        result.requireLanguageVersionTable_ = requireLanguageVersionTable_;
         result.bitField0_ = to_bitField0_;
         return result;
       }
@@ -9561,11 +9561,11 @@ public final class ProtoBuf {
         if (other.hasTypeTable()) {
           mergeTypeTable(other.getTypeTable());
         }
-        if (other.hasSinceKotlinInfo()) {
-          setSinceKotlinInfo(other.getSinceKotlinInfo());
+        if (other.hasRequireLanguageVersion()) {
+          setRequireLanguageVersion(other.getRequireLanguageVersion());
         }
-        if (other.hasSinceKotlinInfoTable()) {
-          mergeSinceKotlinInfoTable(other.getSinceKotlinInfoTable());
+        if (other.hasRequireLanguageVersionTable()) {
+          mergeRequireLanguageVersionTable(other.getRequireLanguageVersionTable());
         }
         this.mergeExtensionFields(other);
         setUnknownFields(
@@ -10921,109 +10921,109 @@ public final class ProtoBuf {
         return this;
       }
 
-      private int sinceKotlinInfo_ ;
+      private int requireLanguageVersion_ ;
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public boolean hasSinceKotlinInfo() {
+      public boolean hasRequireLanguageVersion() {
         return ((bitField0_ & 0x00004000) == 0x00004000);
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public int getSinceKotlinInfo() {
-        return sinceKotlinInfo_;
+      public int getRequireLanguageVersion() {
+        return requireLanguageVersion_;
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public Builder setSinceKotlinInfo(int value) {
+      public Builder setRequireLanguageVersion(int value) {
         bitField0_ |= 0x00004000;
-        sinceKotlinInfo_ = value;
+        requireLanguageVersion_ = value;
         
         return this;
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public Builder clearSinceKotlinInfo() {
+      public Builder clearRequireLanguageVersion() {
         bitField0_ = (bitField0_ & ~0x00004000);
-        sinceKotlinInfo_ = 0;
+        requireLanguageVersion_ = 0;
         
         return this;
       }
 
-      private org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable sinceKotlinInfoTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance();
+      private org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable requireLanguageVersionTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance();
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public boolean hasSinceKotlinInfoTable() {
+      public boolean hasRequireLanguageVersionTable() {
         return ((bitField0_ & 0x00008000) == 0x00008000);
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable getSinceKotlinInfoTable() {
-        return sinceKotlinInfoTable_;
+      public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable getRequireLanguageVersionTable() {
+        return requireLanguageVersionTable_;
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public Builder setSinceKotlinInfoTable(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable value) {
+      public Builder setRequireLanguageVersionTable(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        sinceKotlinInfoTable_ = value;
+        requireLanguageVersionTable_ = value;
 
         bitField0_ |= 0x00008000;
         return this;
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public Builder setSinceKotlinInfoTable(
-          org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.Builder builderForValue) {
-        sinceKotlinInfoTable_ = builderForValue.build();
+      public Builder setRequireLanguageVersionTable(
+          org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.Builder builderForValue) {
+        requireLanguageVersionTable_ = builderForValue.build();
 
         bitField0_ |= 0x00008000;
         return this;
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public Builder mergeSinceKotlinInfoTable(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable value) {
+      public Builder mergeRequireLanguageVersionTable(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable value) {
         if (((bitField0_ & 0x00008000) == 0x00008000) &&
-            sinceKotlinInfoTable_ != org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance()) {
-          sinceKotlinInfoTable_ =
-            org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.newBuilder(sinceKotlinInfoTable_).mergeFrom(value).buildPartial();
+            requireLanguageVersionTable_ != org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance()) {
+          requireLanguageVersionTable_ =
+            org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.newBuilder(requireLanguageVersionTable_).mergeFrom(value).buildPartial();
         } else {
-          sinceKotlinInfoTable_ = value;
+          requireLanguageVersionTable_ = value;
         }
 
         bitField0_ |= 0x00008000;
         return this;
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public Builder clearSinceKotlinInfoTable() {
-        sinceKotlinInfoTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance();
+      public Builder clearRequireLanguageVersionTable() {
+        requireLanguageVersionTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance();
 
         bitField0_ = (bitField0_ & ~0x00008000);
         return this;
@@ -11097,13 +11097,13 @@ public final class ProtoBuf {
     org.jetbrains.kotlin.serialization.ProtoBuf.TypeTable getTypeTable();
 
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
      */
-    boolean hasSinceKotlinInfoTable();
+    boolean hasRequireLanguageVersionTable();
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
      */
-    org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable getSinceKotlinInfoTable();
+    org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable getRequireLanguageVersionTable();
   }
   /**
    * Protobuf type {@code org.jetbrains.kotlin.serialization.Package}
@@ -11194,14 +11194,14 @@ public final class ProtoBuf {
               break;
             }
             case 258: {
-              org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.Builder subBuilder = null;
+              org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = sinceKotlinInfoTable_.toBuilder();
+                subBuilder = requireLanguageVersionTable_.toBuilder();
               }
-              sinceKotlinInfoTable_ = input.readMessage(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.PARSER, extensionRegistry);
+              requireLanguageVersionTable_ = input.readMessage(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(sinceKotlinInfoTable_);
-                sinceKotlinInfoTable_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(requireLanguageVersionTable_);
+                requireLanguageVersionTable_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000002;
               break;
@@ -11369,19 +11369,19 @@ public final class ProtoBuf {
       return typeTable_;
     }
 
-    public static final int SINCE_KOTLIN_INFO_TABLE_FIELD_NUMBER = 32;
-    private org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable sinceKotlinInfoTable_;
+    public static final int REQUIRE_LANGUAGE_VERSION_TABLE_FIELD_NUMBER = 32;
+    private org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable requireLanguageVersionTable_;
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
      */
-    public boolean hasSinceKotlinInfoTable() {
+    public boolean hasRequireLanguageVersionTable() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
      */
-    public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable getSinceKotlinInfoTable() {
-      return sinceKotlinInfoTable_;
+    public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable getRequireLanguageVersionTable() {
+      return requireLanguageVersionTable_;
     }
 
     private void initFields() {
@@ -11389,7 +11389,7 @@ public final class ProtoBuf {
       property_ = java.util.Collections.emptyList();
       typeAlias_ = java.util.Collections.emptyList();
       typeTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.TypeTable.getDefaultInstance();
-      sinceKotlinInfoTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance();
+      requireLanguageVersionTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -11448,7 +11448,7 @@ public final class ProtoBuf {
         output.writeMessage(30, typeTable_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(32, sinceKotlinInfoTable_);
+        output.writeMessage(32, requireLanguageVersionTable_);
       }
       extensionWriter.writeUntil(200, output);
       output.writeRawBytes(unknownFields);
@@ -11478,7 +11478,7 @@ public final class ProtoBuf {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += org.jetbrains.kotlin.protobuf.CodedOutputStream
-          .computeMessageSize(32, sinceKotlinInfoTable_);
+          .computeMessageSize(32, requireLanguageVersionTable_);
       }
       size += extensionsSerializedSize();
       size += unknownFields.size();
@@ -11582,7 +11582,7 @@ public final class ProtoBuf {
         bitField0_ = (bitField0_ & ~0x00000004);
         typeTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.TypeTable.getDefaultInstance();
         bitField0_ = (bitField0_ & ~0x00000008);
-        sinceKotlinInfoTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance();
+        requireLanguageVersionTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance();
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
@@ -11629,7 +11629,7 @@ public final class ProtoBuf {
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.sinceKotlinInfoTable_ = sinceKotlinInfoTable_;
+        result.requireLanguageVersionTable_ = requireLanguageVersionTable_;
         result.bitField0_ = to_bitField0_;
         return result;
       }
@@ -11669,8 +11669,8 @@ public final class ProtoBuf {
         if (other.hasTypeTable()) {
           mergeTypeTable(other.getTypeTable());
         }
-        if (other.hasSinceKotlinInfoTable()) {
-          mergeSinceKotlinInfoTable(other.getSinceKotlinInfoTable());
+        if (other.hasRequireLanguageVersionTable()) {
+          mergeRequireLanguageVersionTable(other.getRequireLanguageVersionTable());
         }
         this.mergeExtensionFields(other);
         setUnknownFields(
@@ -12164,61 +12164,61 @@ public final class ProtoBuf {
         return this;
       }
 
-      private org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable sinceKotlinInfoTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance();
+      private org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable requireLanguageVersionTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance();
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public boolean hasSinceKotlinInfoTable() {
+      public boolean hasRequireLanguageVersionTable() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable getSinceKotlinInfoTable() {
-        return sinceKotlinInfoTable_;
+      public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable getRequireLanguageVersionTable() {
+        return requireLanguageVersionTable_;
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public Builder setSinceKotlinInfoTable(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable value) {
+      public Builder setRequireLanguageVersionTable(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        sinceKotlinInfoTable_ = value;
+        requireLanguageVersionTable_ = value;
 
         bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public Builder setSinceKotlinInfoTable(
-          org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.Builder builderForValue) {
-        sinceKotlinInfoTable_ = builderForValue.build();
+      public Builder setRequireLanguageVersionTable(
+          org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.Builder builderForValue) {
+        requireLanguageVersionTable_ = builderForValue.build();
 
         bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public Builder mergeSinceKotlinInfoTable(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable value) {
+      public Builder mergeRequireLanguageVersionTable(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable value) {
         if (((bitField0_ & 0x00000010) == 0x00000010) &&
-            sinceKotlinInfoTable_ != org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance()) {
-          sinceKotlinInfoTable_ =
-            org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.newBuilder(sinceKotlinInfoTable_).mergeFrom(value).buildPartial();
+            requireLanguageVersionTable_ != org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance()) {
+          requireLanguageVersionTable_ =
+            org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.newBuilder(requireLanguageVersionTable_).mergeFrom(value).buildPartial();
         } else {
-          sinceKotlinInfoTable_ = value;
+          requireLanguageVersionTable_ = value;
         }
 
         bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfoTable since_kotlin_info_table = 32;</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersionTable require_language_version_table = 32;</code>
        */
-      public Builder clearSinceKotlinInfoTable() {
-        sinceKotlinInfoTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance();
+      public Builder clearRequireLanguageVersionTable() {
+        requireLanguageVersionTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance();
 
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
@@ -12890,21 +12890,21 @@ public final class ProtoBuf {
     int getValueParameterCount();
 
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    boolean hasSinceKotlinInfo();
+    boolean hasRequireLanguageVersion();
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    int getSinceKotlinInfo();
+    int getRequireLanguageVersion();
   }
   /**
    * Protobuf type {@code org.jetbrains.kotlin.serialization.Constructor}
@@ -12972,7 +12972,7 @@ public final class ProtoBuf {
             }
             case 248: {
               bitField0_ |= 0x00000002;
-              sinceKotlinInfo_ = input.readInt32();
+              requireLanguageVersion_ = input.readInt32();
               break;
             }
           }
@@ -13074,33 +13074,33 @@ public final class ProtoBuf {
       return valueParameter_.get(index);
     }
 
-    public static final int SINCEKOTLININFO_FIELD_NUMBER = 31;
-    private int sinceKotlinInfo_;
+    public static final int REQUIRE_LANGUAGE_VERSION_FIELD_NUMBER = 31;
+    private int requireLanguageVersion_;
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    public boolean hasSinceKotlinInfo() {
+    public boolean hasRequireLanguageVersion() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    public int getSinceKotlinInfo() {
-      return sinceKotlinInfo_;
+    public int getRequireLanguageVersion() {
+      return requireLanguageVersion_;
     }
 
     private void initFields() {
       flags_ = 6;
       valueParameter_ = java.util.Collections.emptyList();
-      sinceKotlinInfo_ = 0;
+      requireLanguageVersion_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -13135,7 +13135,7 @@ public final class ProtoBuf {
         output.writeMessage(2, valueParameter_.get(i));
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(31, sinceKotlinInfo_);
+        output.writeInt32(31, requireLanguageVersion_);
       }
       extensionWriter.writeUntil(200, output);
       output.writeRawBytes(unknownFields);
@@ -13157,7 +13157,7 @@ public final class ProtoBuf {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += org.jetbrains.kotlin.protobuf.CodedOutputStream
-          .computeInt32Size(31, sinceKotlinInfo_);
+          .computeInt32Size(31, requireLanguageVersion_);
       }
       size += extensionsSerializedSize();
       size += unknownFields.size();
@@ -13257,7 +13257,7 @@ public final class ProtoBuf {
         bitField0_ = (bitField0_ & ~0x00000001);
         valueParameter_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
-        sinceKotlinInfo_ = 0;
+        requireLanguageVersion_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -13294,7 +13294,7 @@ public final class ProtoBuf {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.sinceKotlinInfo_ = sinceKotlinInfo_;
+        result.requireLanguageVersion_ = requireLanguageVersion_;
         result.bitField0_ = to_bitField0_;
         return result;
       }
@@ -13314,8 +13314,8 @@ public final class ProtoBuf {
           }
           
         }
-        if (other.hasSinceKotlinInfo()) {
-          setSinceKotlinInfo(other.getSinceKotlinInfo());
+        if (other.hasRequireLanguageVersion()) {
+          setRequireLanguageVersion(other.getRequireLanguageVersion());
         }
         this.mergeExtensionFields(other);
         setUnknownFields(
@@ -13537,50 +13537,50 @@ public final class ProtoBuf {
         return this;
       }
 
-      private int sinceKotlinInfo_ ;
+      private int requireLanguageVersion_ ;
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public boolean hasSinceKotlinInfo() {
+      public boolean hasRequireLanguageVersion() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public int getSinceKotlinInfo() {
-        return sinceKotlinInfo_;
+      public int getRequireLanguageVersion() {
+        return requireLanguageVersion_;
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public Builder setSinceKotlinInfo(int value) {
+      public Builder setRequireLanguageVersion(int value) {
         bitField0_ |= 0x00000004;
-        sinceKotlinInfo_ = value;
+        requireLanguageVersion_ = value;
         
         return this;
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public Builder clearSinceKotlinInfo() {
+      public Builder clearRequireLanguageVersion() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        sinceKotlinInfo_ = 0;
+        requireLanguageVersion_ = 0;
         
         return this;
       }
@@ -13730,21 +13730,21 @@ public final class ProtoBuf {
     org.jetbrains.kotlin.serialization.ProtoBuf.TypeTable getTypeTable();
 
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    boolean hasSinceKotlinInfo();
+    boolean hasRequireLanguageVersion();
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    int getSinceKotlinInfo();
+    int getRequireLanguageVersion();
   }
   /**
    * Protobuf type {@code org.jetbrains.kotlin.serialization.Function}
@@ -13879,7 +13879,7 @@ public final class ProtoBuf {
             }
             case 248: {
               bitField0_ |= 0x00000100;
-              sinceKotlinInfo_ = input.readInt32();
+              requireLanguageVersion_ = input.readInt32();
               break;
             }
           }
@@ -14140,27 +14140,27 @@ public final class ProtoBuf {
       return typeTable_;
     }
 
-    public static final int SINCEKOTLININFO_FIELD_NUMBER = 31;
-    private int sinceKotlinInfo_;
+    public static final int REQUIRE_LANGUAGE_VERSION_FIELD_NUMBER = 31;
+    private int requireLanguageVersion_;
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    public boolean hasSinceKotlinInfo() {
+    public boolean hasRequireLanguageVersion() {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    public int getSinceKotlinInfo() {
-      return sinceKotlinInfo_;
+    public int getRequireLanguageVersion() {
+      return requireLanguageVersion_;
     }
 
     private void initFields() {
@@ -14174,7 +14174,7 @@ public final class ProtoBuf {
       receiverTypeId_ = 0;
       valueParameter_ = java.util.Collections.emptyList();
       typeTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.TypeTable.getDefaultInstance();
-      sinceKotlinInfo_ = 0;
+      requireLanguageVersion_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -14261,7 +14261,7 @@ public final class ProtoBuf {
         output.writeMessage(30, typeTable_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeInt32(31, sinceKotlinInfo_);
+        output.writeInt32(31, requireLanguageVersion_);
       }
       extensionWriter.writeUntil(200, output);
       output.writeRawBytes(unknownFields);
@@ -14315,7 +14315,7 @@ public final class ProtoBuf {
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += org.jetbrains.kotlin.protobuf.CodedOutputStream
-          .computeInt32Size(31, sinceKotlinInfo_);
+          .computeInt32Size(31, requireLanguageVersion_);
       }
       size += extensionsSerializedSize();
       size += unknownFields.size();
@@ -14431,7 +14431,7 @@ public final class ProtoBuf {
         bitField0_ = (bitField0_ & ~0x00000100);
         typeTable_ = org.jetbrains.kotlin.serialization.ProtoBuf.TypeTable.getDefaultInstance();
         bitField0_ = (bitField0_ & ~0x00000200);
-        sinceKotlinInfo_ = 0;
+        requireLanguageVersion_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
@@ -14501,7 +14501,7 @@ public final class ProtoBuf {
         if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.sinceKotlinInfo_ = sinceKotlinInfo_;
+        result.requireLanguageVersion_ = requireLanguageVersion_;
         result.bitField0_ = to_bitField0_;
         return result;
       }
@@ -14552,8 +14552,8 @@ public final class ProtoBuf {
         if (other.hasTypeTable()) {
           mergeTypeTable(other.getTypeTable());
         }
-        if (other.hasSinceKotlinInfo()) {
-          setSinceKotlinInfo(other.getSinceKotlinInfo());
+        if (other.hasRequireLanguageVersion()) {
+          setRequireLanguageVersion(other.getRequireLanguageVersion());
         }
         this.mergeExtensionFields(other);
         setUnknownFields(
@@ -15268,50 +15268,50 @@ public final class ProtoBuf {
         return this;
       }
 
-      private int sinceKotlinInfo_ ;
+      private int requireLanguageVersion_ ;
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public boolean hasSinceKotlinInfo() {
+      public boolean hasRequireLanguageVersion() {
         return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public int getSinceKotlinInfo() {
-        return sinceKotlinInfo_;
+      public int getRequireLanguageVersion() {
+        return requireLanguageVersion_;
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public Builder setSinceKotlinInfo(int value) {
+      public Builder setRequireLanguageVersion(int value) {
         bitField0_ |= 0x00000400;
-        sinceKotlinInfo_ = value;
+        requireLanguageVersion_ = value;
         
         return this;
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public Builder clearSinceKotlinInfo() {
+      public Builder clearRequireLanguageVersion() {
         bitField0_ = (bitField0_ & ~0x00000400);
-        sinceKotlinInfo_ = 0;
+        requireLanguageVersion_ = 0;
         
         return this;
       }
@@ -15487,21 +15487,21 @@ public final class ProtoBuf {
     int getSetterFlags();
 
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    boolean hasSinceKotlinInfo();
+    boolean hasRequireLanguageVersion();
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    int getSinceKotlinInfo();
+    int getRequireLanguageVersion();
   }
   /**
    * Protobuf type {@code org.jetbrains.kotlin.serialization.Property}
@@ -15638,7 +15638,7 @@ public final class ProtoBuf {
             }
             case 248: {
               bitField0_ |= 0x00000400;
-              sinceKotlinInfo_ = input.readInt32();
+              requireLanguageVersion_ = input.readInt32();
               break;
             }
           }
@@ -15913,27 +15913,27 @@ public final class ProtoBuf {
       return setterFlags_;
     }
 
-    public static final int SINCEKOTLININFO_FIELD_NUMBER = 31;
-    private int sinceKotlinInfo_;
+    public static final int REQUIRE_LANGUAGE_VERSION_FIELD_NUMBER = 31;
+    private int requireLanguageVersion_;
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    public boolean hasSinceKotlinInfo() {
+    public boolean hasRequireLanguageVersion() {
       return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    public int getSinceKotlinInfo() {
-      return sinceKotlinInfo_;
+    public int getRequireLanguageVersion() {
+      return requireLanguageVersion_;
     }
 
     private void initFields() {
@@ -15948,7 +15948,7 @@ public final class ProtoBuf {
       setterValueParameter_ = org.jetbrains.kotlin.serialization.ProtoBuf.ValueParameter.getDefaultInstance();
       getterFlags_ = 0;
       setterFlags_ = 0;
-      sinceKotlinInfo_ = 0;
+      requireLanguageVersion_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -16032,7 +16032,7 @@ public final class ProtoBuf {
         output.writeInt32(11, flags_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeInt32(31, sinceKotlinInfo_);
+        output.writeInt32(31, requireLanguageVersion_);
       }
       extensionWriter.writeUntil(200, output);
       output.writeRawBytes(unknownFields);
@@ -16090,7 +16090,7 @@ public final class ProtoBuf {
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += org.jetbrains.kotlin.protobuf.CodedOutputStream
-          .computeInt32Size(31, sinceKotlinInfo_);
+          .computeInt32Size(31, requireLanguageVersion_);
       }
       size += extensionsSerializedSize();
       size += unknownFields.size();
@@ -16208,7 +16208,7 @@ public final class ProtoBuf {
         bitField0_ = (bitField0_ & ~0x00000200);
         setterFlags_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
-        sinceKotlinInfo_ = 0;
+        requireLanguageVersion_ = 0;
         bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
@@ -16281,7 +16281,7 @@ public final class ProtoBuf {
         if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
           to_bitField0_ |= 0x00000400;
         }
-        result.sinceKotlinInfo_ = sinceKotlinInfo_;
+        result.requireLanguageVersion_ = requireLanguageVersion_;
         result.bitField0_ = to_bitField0_;
         return result;
       }
@@ -16328,8 +16328,8 @@ public final class ProtoBuf {
         if (other.hasSetterFlags()) {
           setSetterFlags(other.getSetterFlags());
         }
-        if (other.hasSinceKotlinInfo()) {
-          setSinceKotlinInfo(other.getSinceKotlinInfo());
+        if (other.hasRequireLanguageVersion()) {
+          setRequireLanguageVersion(other.getRequireLanguageVersion());
         }
         this.mergeExtensionFields(other);
         setUnknownFields(
@@ -17021,50 +17021,50 @@ public final class ProtoBuf {
         return this;
       }
 
-      private int sinceKotlinInfo_ ;
+      private int requireLanguageVersion_ ;
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public boolean hasSinceKotlinInfo() {
+      public boolean hasRequireLanguageVersion() {
         return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public int getSinceKotlinInfo() {
-        return sinceKotlinInfo_;
+      public int getRequireLanguageVersion() {
+        return requireLanguageVersion_;
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public Builder setSinceKotlinInfo(int value) {
+      public Builder setRequireLanguageVersion(int value) {
         bitField0_ |= 0x00000800;
-        sinceKotlinInfo_ = value;
+        requireLanguageVersion_ = value;
         
         return this;
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public Builder clearSinceKotlinInfo() {
+      public Builder clearRequireLanguageVersion() {
         bitField0_ = (bitField0_ & ~0x00000800);
-        sinceKotlinInfo_ = 0;
+        requireLanguageVersion_ = 0;
         
         return this;
       }
@@ -18095,21 +18095,21 @@ public final class ProtoBuf {
     int getAnnotationCount();
 
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    boolean hasSinceKotlinInfo();
+    boolean hasRequireLanguageVersion();
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    int getSinceKotlinInfo();
+    int getRequireLanguageVersion();
   }
   /**
    * Protobuf type {@code org.jetbrains.kotlin.serialization.TypeAlias}
@@ -18226,7 +18226,7 @@ public final class ProtoBuf {
             }
             case 248: {
               bitField0_ |= 0x00000040;
-              sinceKotlinInfo_ = input.readInt32();
+              requireLanguageVersion_ = input.readInt32();
               break;
             }
           }
@@ -18439,27 +18439,27 @@ public final class ProtoBuf {
       return annotation_.get(index);
     }
 
-    public static final int SINCEKOTLININFO_FIELD_NUMBER = 31;
-    private int sinceKotlinInfo_;
+    public static final int REQUIRE_LANGUAGE_VERSION_FIELD_NUMBER = 31;
+    private int requireLanguageVersion_;
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    public boolean hasSinceKotlinInfo() {
+    public boolean hasRequireLanguageVersion() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional int32 sinceKotlinInfo = 31;</code>
+     * <code>optional int32 require_language_version = 31;</code>
      *
      * <pre>
-     * Index into the SinceKotlinInfoTable
+     * Index into the RequireLanguageVersionTable
      * </pre>
      */
-    public int getSinceKotlinInfo() {
-      return sinceKotlinInfo_;
+    public int getRequireLanguageVersion() {
+      return requireLanguageVersion_;
     }
 
     private void initFields() {
@@ -18471,7 +18471,7 @@ public final class ProtoBuf {
       expandedType_ = org.jetbrains.kotlin.serialization.ProtoBuf.Type.getDefaultInstance();
       expandedTypeId_ = 0;
       annotation_ = java.util.Collections.emptyList();
-      sinceKotlinInfo_ = 0;
+      requireLanguageVersion_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -18546,7 +18546,7 @@ public final class ProtoBuf {
         output.writeMessage(8, annotation_.get(i));
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeInt32(31, sinceKotlinInfo_);
+        output.writeInt32(31, requireLanguageVersion_);
       }
       extensionWriter.writeUntil(200, output);
       output.writeRawBytes(unknownFields);
@@ -18592,7 +18592,7 @@ public final class ProtoBuf {
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += org.jetbrains.kotlin.protobuf.CodedOutputStream
-          .computeInt32Size(31, sinceKotlinInfo_);
+          .computeInt32Size(31, requireLanguageVersion_);
       }
       size += extensionsSerializedSize();
       size += unknownFields.size();
@@ -18704,7 +18704,7 @@ public final class ProtoBuf {
         bitField0_ = (bitField0_ & ~0x00000040);
         annotation_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000080);
-        sinceKotlinInfo_ = 0;
+        requireLanguageVersion_ = 0;
         bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
@@ -18766,7 +18766,7 @@ public final class ProtoBuf {
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.sinceKotlinInfo_ = sinceKotlinInfo_;
+        result.requireLanguageVersion_ = requireLanguageVersion_;
         result.bitField0_ = to_bitField0_;
         return result;
       }
@@ -18811,8 +18811,8 @@ public final class ProtoBuf {
           }
           
         }
-        if (other.hasSinceKotlinInfo()) {
-          setSinceKotlinInfo(other.getSinceKotlinInfo());
+        if (other.hasRequireLanguageVersion()) {
+          setRequireLanguageVersion(other.getRequireLanguageVersion());
         }
         this.mergeExtensionFields(other);
         setUnknownFields(
@@ -19393,50 +19393,50 @@ public final class ProtoBuf {
         return this;
       }
 
-      private int sinceKotlinInfo_ ;
+      private int requireLanguageVersion_ ;
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public boolean hasSinceKotlinInfo() {
+      public boolean hasRequireLanguageVersion() {
         return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public int getSinceKotlinInfo() {
-        return sinceKotlinInfo_;
+      public int getRequireLanguageVersion() {
+        return requireLanguageVersion_;
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public Builder setSinceKotlinInfo(int value) {
+      public Builder setRequireLanguageVersion(int value) {
         bitField0_ |= 0x00000100;
-        sinceKotlinInfo_ = value;
+        requireLanguageVersion_ = value;
         
         return this;
       }
       /**
-       * <code>optional int32 sinceKotlinInfo = 31;</code>
+       * <code>optional int32 require_language_version = 31;</code>
        *
        * <pre>
-       * Index into the SinceKotlinInfoTable
+       * Index into the RequireLanguageVersionTable
        * </pre>
        */
-      public Builder clearSinceKotlinInfo() {
+      public Builder clearRequireLanguageVersion() {
         bitField0_ = (bitField0_ & ~0x00000100);
-        sinceKotlinInfo_ = 0;
+        requireLanguageVersion_ = 0;
         
         return this;
       }
@@ -19819,8 +19819,8 @@ public final class ProtoBuf {
     // @@protoc_insertion_point(class_scope:org.jetbrains.kotlin.serialization.EnumEntry)
   }
 
-  public interface SinceKotlinInfoOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:org.jetbrains.kotlin.serialization.SinceKotlinInfo)
+  public interface RequireLanguageVersionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.jetbrains.kotlin.serialization.RequireLanguageVersion)
       org.jetbrains.kotlin.protobuf.MessageLiteOrBuilder {
 
     /**
@@ -19864,7 +19864,7 @@ public final class ProtoBuf {
     int getVersionFull();
 
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfo.Level level = 3 [default = ERROR];</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersion.Level level = 3 [default = ERROR];</code>
      *
      * <pre>
      * Level of the reported diagnostic
@@ -19872,13 +19872,13 @@ public final class ProtoBuf {
      */
     boolean hasLevel();
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfo.Level level = 3 [default = ERROR];</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersion.Level level = 3 [default = ERROR];</code>
      *
      * <pre>
      * Level of the reported diagnostic
      * </pre>
      */
-    org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level getLevel();
+    org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level getLevel();
 
     /**
      * <code>optional int32 error_code = 4;</code>
@@ -19915,30 +19915,30 @@ public final class ProtoBuf {
     int getMessage();
   }
   /**
-   * Protobuf type {@code org.jetbrains.kotlin.serialization.SinceKotlinInfo}
+   * Protobuf type {@code org.jetbrains.kotlin.serialization.RequireLanguageVersion}
    */
-  public static final class SinceKotlinInfo extends
+  public static final class RequireLanguageVersion extends
       org.jetbrains.kotlin.protobuf.GeneratedMessageLite implements
-      // @@protoc_insertion_point(message_implements:org.jetbrains.kotlin.serialization.SinceKotlinInfo)
-      SinceKotlinInfoOrBuilder {
-    // Use SinceKotlinInfo.newBuilder() to construct.
-    private SinceKotlinInfo(org.jetbrains.kotlin.protobuf.GeneratedMessageLite.Builder builder) {
+      // @@protoc_insertion_point(message_implements:org.jetbrains.kotlin.serialization.RequireLanguageVersion)
+      RequireLanguageVersionOrBuilder {
+    // Use RequireLanguageVersion.newBuilder() to construct.
+    private RequireLanguageVersion(org.jetbrains.kotlin.protobuf.GeneratedMessageLite.Builder builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private SinceKotlinInfo(boolean noInit) { this.unknownFields = org.jetbrains.kotlin.protobuf.ByteString.EMPTY;}
+    private RequireLanguageVersion(boolean noInit) { this.unknownFields = org.jetbrains.kotlin.protobuf.ByteString.EMPTY;}
 
-    private static final SinceKotlinInfo defaultInstance;
-    public static SinceKotlinInfo getDefaultInstance() {
+    private static final RequireLanguageVersion defaultInstance;
+    public static RequireLanguageVersion getDefaultInstance() {
       return defaultInstance;
     }
 
-    public SinceKotlinInfo getDefaultInstanceForType() {
+    public RequireLanguageVersion getDefaultInstanceForType() {
       return defaultInstance;
     }
 
     private final org.jetbrains.kotlin.protobuf.ByteString unknownFields;
-    private SinceKotlinInfo(
+    private RequireLanguageVersion(
         org.jetbrains.kotlin.protobuf.CodedInputStream input,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
@@ -19976,7 +19976,7 @@ public final class ProtoBuf {
             }
             case 24: {
               int rawValue = input.readEnum();
-              org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level value = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level.valueOf(rawValue);
+              org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level value = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level.valueOf(rawValue);
               if (value == null) {
                 unknownFieldsCodedOutput.writeRawVarint32(tag);
                 unknownFieldsCodedOutput.writeRawVarint32(rawValue);
@@ -20014,23 +20014,23 @@ public final class ProtoBuf {
         makeExtensionsImmutable();
       }
     }
-    public static org.jetbrains.kotlin.protobuf.Parser<SinceKotlinInfo> PARSER =
-        new org.jetbrains.kotlin.protobuf.AbstractParser<SinceKotlinInfo>() {
-      public SinceKotlinInfo parsePartialFrom(
+    public static org.jetbrains.kotlin.protobuf.Parser<RequireLanguageVersion> PARSER =
+        new org.jetbrains.kotlin.protobuf.AbstractParser<RequireLanguageVersion>() {
+      public RequireLanguageVersion parsePartialFrom(
           org.jetbrains.kotlin.protobuf.CodedInputStream input,
           org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
           throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
-        return new SinceKotlinInfo(input, extensionRegistry);
+        return new RequireLanguageVersion(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public org.jetbrains.kotlin.protobuf.Parser<SinceKotlinInfo> getParserForType() {
+    public org.jetbrains.kotlin.protobuf.Parser<RequireLanguageVersion> getParserForType() {
       return PARSER;
     }
 
     /**
-     * Protobuf enum {@code org.jetbrains.kotlin.serialization.SinceKotlinInfo.Level}
+     * Protobuf enum {@code org.jetbrains.kotlin.serialization.RequireLanguageVersion.Level}
      */
     public enum Level
         implements org.jetbrains.kotlin.protobuf.Internal.EnumLite {
@@ -20091,7 +20091,7 @@ public final class ProtoBuf {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:org.jetbrains.kotlin.serialization.SinceKotlinInfo.Level)
+      // @@protoc_insertion_point(enum_scope:org.jetbrains.kotlin.serialization.RequireLanguageVersion.Level)
     }
 
     private int bitField0_;
@@ -20148,9 +20148,9 @@ public final class ProtoBuf {
     }
 
     public static final int LEVEL_FIELD_NUMBER = 3;
-    private org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level level_;
+    private org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level level_;
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfo.Level level = 3 [default = ERROR];</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersion.Level level = 3 [default = ERROR];</code>
      *
      * <pre>
      * Level of the reported diagnostic
@@ -20160,13 +20160,13 @@ public final class ProtoBuf {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfo.Level level = 3 [default = ERROR];</code>
+     * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersion.Level level = 3 [default = ERROR];</code>
      *
      * <pre>
      * Level of the reported diagnostic
      * </pre>
      */
-    public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level getLevel() {
+    public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level getLevel() {
       return level_;
     }
 
@@ -20219,7 +20219,7 @@ public final class ProtoBuf {
     private void initFields() {
       version_ = 0;
       versionFull_ = 0;
-      level_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level.ERROR;
+      level_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level.ERROR;
       errorCode_ = 0;
       message_ = 0;
     }
@@ -20292,53 +20292,53 @@ public final class ProtoBuf {
       return super.writeReplace();
     }
 
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion parseFrom(
         org.jetbrains.kotlin.protobuf.ByteString data)
         throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion parseFrom(
         org.jetbrains.kotlin.protobuf.ByteString data,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo parseFrom(byte[] data)
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion parseFrom(byte[] data)
         throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion parseFrom(
         byte[] data,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo parseFrom(java.io.InputStream input)
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion parseFrom(
         java.io.InputStream input,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo parseDelimitedFrom(java.io.InputStream input)
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo parseDelimitedFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion parseDelimitedFrom(
         java.io.InputStream input,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion parseFrom(
         org.jetbrains.kotlin.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion parseFrom(
         org.jetbrains.kotlin.protobuf.CodedInputStream input,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -20347,21 +20347,21 @@ public final class ProtoBuf {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo prototype) {
+    public static Builder newBuilder(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
 
     /**
-     * Protobuf type {@code org.jetbrains.kotlin.serialization.SinceKotlinInfo}
+     * Protobuf type {@code org.jetbrains.kotlin.serialization.RequireLanguageVersion}
      */
     public static final class Builder extends
         org.jetbrains.kotlin.protobuf.GeneratedMessageLite.Builder<
-          org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo, Builder>
+          org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion, Builder>
         implements
-        // @@protoc_insertion_point(builder_implements:org.jetbrains.kotlin.serialization.SinceKotlinInfo)
-        org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoOrBuilder {
-      // Construct using org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.newBuilder()
+        // @@protoc_insertion_point(builder_implements:org.jetbrains.kotlin.serialization.RequireLanguageVersion)
+        org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionOrBuilder {
+      // Construct using org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -20378,7 +20378,7 @@ public final class ProtoBuf {
         bitField0_ = (bitField0_ & ~0x00000001);
         versionFull_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        level_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level.ERROR;
+        level_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level.ERROR;
         bitField0_ = (bitField0_ & ~0x00000004);
         errorCode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -20391,20 +20391,20 @@ public final class ProtoBuf {
         return create().mergeFrom(buildPartial());
       }
 
-      public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo getDefaultInstanceForType() {
-        return org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.getDefaultInstance();
+      public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion getDefaultInstanceForType() {
+        return org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.getDefaultInstance();
       }
 
-      public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo build() {
-        org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo result = buildPartial();
+      public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion build() {
+        org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo buildPartial() {
-        org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo result = new org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo(this);
+      public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion buildPartial() {
+        org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion result = new org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -20431,8 +20431,8 @@ public final class ProtoBuf {
         return result;
       }
 
-      public Builder mergeFrom(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo other) {
-        if (other == org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion other) {
+        if (other == org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.getDefaultInstance()) return this;
         if (other.hasVersion()) {
           setVersion(other.getVersion());
         }
@@ -20461,11 +20461,11 @@ public final class ProtoBuf {
           org.jetbrains.kotlin.protobuf.CodedInputStream input,
           org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo parsedMessage = null;
+        org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo) e.getUnfinishedMessage();
+          parsedMessage = (org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -20584,9 +20584,9 @@ public final class ProtoBuf {
         return this;
       }
 
-      private org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level level_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level.ERROR;
+      private org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level level_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level.ERROR;
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfo.Level level = 3 [default = ERROR];</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersion.Level level = 3 [default = ERROR];</code>
        *
        * <pre>
        * Level of the reported diagnostic
@@ -20596,23 +20596,23 @@ public final class ProtoBuf {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfo.Level level = 3 [default = ERROR];</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersion.Level level = 3 [default = ERROR];</code>
        *
        * <pre>
        * Level of the reported diagnostic
        * </pre>
        */
-      public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level getLevel() {
+      public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level getLevel() {
         return level_;
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfo.Level level = 3 [default = ERROR];</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersion.Level level = 3 [default = ERROR];</code>
        *
        * <pre>
        * Level of the reported diagnostic
        * </pre>
        */
-      public Builder setLevel(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level value) {
+      public Builder setLevel(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -20622,7 +20622,7 @@ public final class ProtoBuf {
         return this;
       }
       /**
-       * <code>optional .org.jetbrains.kotlin.serialization.SinceKotlinInfo.Level level = 3 [default = ERROR];</code>
+       * <code>optional .org.jetbrains.kotlin.serialization.RequireLanguageVersion.Level level = 3 [default = ERROR];</code>
        *
        * <pre>
        * Level of the reported diagnostic
@@ -20630,7 +20630,7 @@ public final class ProtoBuf {
        */
       public Builder clearLevel() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        level_ = org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Level.ERROR;
+        level_ = org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Level.ERROR;
         
         return this;
       }
@@ -20731,60 +20731,60 @@ public final class ProtoBuf {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:org.jetbrains.kotlin.serialization.SinceKotlinInfo)
+      // @@protoc_insertion_point(builder_scope:org.jetbrains.kotlin.serialization.RequireLanguageVersion)
     }
 
     static {
-      defaultInstance = new SinceKotlinInfo(true);
+      defaultInstance = new RequireLanguageVersion(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:org.jetbrains.kotlin.serialization.SinceKotlinInfo)
+    // @@protoc_insertion_point(class_scope:org.jetbrains.kotlin.serialization.RequireLanguageVersion)
   }
 
-  public interface SinceKotlinInfoTableOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:org.jetbrains.kotlin.serialization.SinceKotlinInfoTable)
+  public interface RequireLanguageVersionTableOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.jetbrains.kotlin.serialization.RequireLanguageVersionTable)
       org.jetbrains.kotlin.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+     * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
      */
-    java.util.List<org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo> 
-        getInfoList();
+    java.util.List<org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion> 
+        getRequirementList();
     /**
-     * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+     * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
      */
-    org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo getInfo(int index);
+    org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion getRequirement(int index);
     /**
-     * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+     * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
      */
-    int getInfoCount();
+    int getRequirementCount();
   }
   /**
-   * Protobuf type {@code org.jetbrains.kotlin.serialization.SinceKotlinInfoTable}
+   * Protobuf type {@code org.jetbrains.kotlin.serialization.RequireLanguageVersionTable}
    */
-  public static final class SinceKotlinInfoTable extends
+  public static final class RequireLanguageVersionTable extends
       org.jetbrains.kotlin.protobuf.GeneratedMessageLite implements
-      // @@protoc_insertion_point(message_implements:org.jetbrains.kotlin.serialization.SinceKotlinInfoTable)
-      SinceKotlinInfoTableOrBuilder {
-    // Use SinceKotlinInfoTable.newBuilder() to construct.
-    private SinceKotlinInfoTable(org.jetbrains.kotlin.protobuf.GeneratedMessageLite.Builder builder) {
+      // @@protoc_insertion_point(message_implements:org.jetbrains.kotlin.serialization.RequireLanguageVersionTable)
+      RequireLanguageVersionTableOrBuilder {
+    // Use RequireLanguageVersionTable.newBuilder() to construct.
+    private RequireLanguageVersionTable(org.jetbrains.kotlin.protobuf.GeneratedMessageLite.Builder builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private SinceKotlinInfoTable(boolean noInit) { this.unknownFields = org.jetbrains.kotlin.protobuf.ByteString.EMPTY;}
+    private RequireLanguageVersionTable(boolean noInit) { this.unknownFields = org.jetbrains.kotlin.protobuf.ByteString.EMPTY;}
 
-    private static final SinceKotlinInfoTable defaultInstance;
-    public static SinceKotlinInfoTable getDefaultInstance() {
+    private static final RequireLanguageVersionTable defaultInstance;
+    public static RequireLanguageVersionTable getDefaultInstance() {
       return defaultInstance;
     }
 
-    public SinceKotlinInfoTable getDefaultInstanceForType() {
+    public RequireLanguageVersionTable getDefaultInstanceForType() {
       return defaultInstance;
     }
 
     private final org.jetbrains.kotlin.protobuf.ByteString unknownFields;
-    private SinceKotlinInfoTable(
+    private RequireLanguageVersionTable(
         org.jetbrains.kotlin.protobuf.CodedInputStream input,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
@@ -20812,10 +20812,10 @@ public final class ProtoBuf {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                info_ = new java.util.ArrayList<org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo>();
+                requirement_ = new java.util.ArrayList<org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              info_.add(input.readMessage(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.PARSER, extensionRegistry));
+              requirement_.add(input.readMessage(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.PARSER, extensionRegistry));
               break;
             }
           }
@@ -20827,7 +20827,7 @@ public final class ProtoBuf {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          info_ = java.util.Collections.unmodifiableList(info_);
+          requirement_ = java.util.Collections.unmodifiableList(requirement_);
         }
         try {
           unknownFieldsCodedOutput.flush();
@@ -20839,58 +20839,58 @@ public final class ProtoBuf {
         makeExtensionsImmutable();
       }
     }
-    public static org.jetbrains.kotlin.protobuf.Parser<SinceKotlinInfoTable> PARSER =
-        new org.jetbrains.kotlin.protobuf.AbstractParser<SinceKotlinInfoTable>() {
-      public SinceKotlinInfoTable parsePartialFrom(
+    public static org.jetbrains.kotlin.protobuf.Parser<RequireLanguageVersionTable> PARSER =
+        new org.jetbrains.kotlin.protobuf.AbstractParser<RequireLanguageVersionTable>() {
+      public RequireLanguageVersionTable parsePartialFrom(
           org.jetbrains.kotlin.protobuf.CodedInputStream input,
           org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
           throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
-        return new SinceKotlinInfoTable(input, extensionRegistry);
+        return new RequireLanguageVersionTable(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public org.jetbrains.kotlin.protobuf.Parser<SinceKotlinInfoTable> getParserForType() {
+    public org.jetbrains.kotlin.protobuf.Parser<RequireLanguageVersionTable> getParserForType() {
       return PARSER;
     }
 
-    public static final int INFO_FIELD_NUMBER = 1;
-    private java.util.List<org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo> info_;
+    public static final int REQUIREMENT_FIELD_NUMBER = 1;
+    private java.util.List<org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion> requirement_;
     /**
-     * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+     * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
      */
-    public java.util.List<org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo> getInfoList() {
-      return info_;
+    public java.util.List<org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion> getRequirementList() {
+      return requirement_;
     }
     /**
-     * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+     * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
      */
-    public java.util.List<? extends org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoOrBuilder> 
-        getInfoOrBuilderList() {
-      return info_;
+    public java.util.List<? extends org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionOrBuilder> 
+        getRequirementOrBuilderList() {
+      return requirement_;
     }
     /**
-     * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+     * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
      */
-    public int getInfoCount() {
-      return info_.size();
+    public int getRequirementCount() {
+      return requirement_.size();
     }
     /**
-     * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+     * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
      */
-    public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo getInfo(int index) {
-      return info_.get(index);
+    public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion getRequirement(int index) {
+      return requirement_.get(index);
     }
     /**
-     * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+     * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
      */
-    public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoOrBuilder getInfoOrBuilder(
+    public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionOrBuilder getRequirementOrBuilder(
         int index) {
-      return info_.get(index);
+      return requirement_.get(index);
     }
 
     private void initFields() {
-      info_ = java.util.Collections.emptyList();
+      requirement_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -20905,8 +20905,8 @@ public final class ProtoBuf {
     public void writeTo(org.jetbrains.kotlin.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      for (int i = 0; i < info_.size(); i++) {
-        output.writeMessage(1, info_.get(i));
+      for (int i = 0; i < requirement_.size(); i++) {
+        output.writeMessage(1, requirement_.get(i));
       }
       output.writeRawBytes(unknownFields);
     }
@@ -20917,9 +20917,9 @@ public final class ProtoBuf {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < info_.size(); i++) {
+      for (int i = 0; i < requirement_.size(); i++) {
         size += org.jetbrains.kotlin.protobuf.CodedOutputStream
-          .computeMessageSize(1, info_.get(i));
+          .computeMessageSize(1, requirement_.get(i));
       }
       size += unknownFields.size();
       memoizedSerializedSize = size;
@@ -20933,53 +20933,53 @@ public final class ProtoBuf {
       return super.writeReplace();
     }
 
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable parseFrom(
         org.jetbrains.kotlin.protobuf.ByteString data)
         throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable parseFrom(
         org.jetbrains.kotlin.protobuf.ByteString data,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable parseFrom(byte[] data)
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable parseFrom(byte[] data)
         throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable parseFrom(
         byte[] data,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable parseFrom(java.io.InputStream input)
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable parseFrom(
         java.io.InputStream input,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable parseDelimitedFrom(java.io.InputStream input)
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable parseDelimitedFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable parseDelimitedFrom(
         java.io.InputStream input,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable parseFrom(
         org.jetbrains.kotlin.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable parseFrom(
+    public static org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable parseFrom(
         org.jetbrains.kotlin.protobuf.CodedInputStream input,
         org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -20988,21 +20988,21 @@ public final class ProtoBuf {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable prototype) {
+    public static Builder newBuilder(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
 
     /**
-     * Protobuf type {@code org.jetbrains.kotlin.serialization.SinceKotlinInfoTable}
+     * Protobuf type {@code org.jetbrains.kotlin.serialization.RequireLanguageVersionTable}
      */
     public static final class Builder extends
         org.jetbrains.kotlin.protobuf.GeneratedMessageLite.Builder<
-          org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable, Builder>
+          org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable, Builder>
         implements
-        // @@protoc_insertion_point(builder_implements:org.jetbrains.kotlin.serialization.SinceKotlinInfoTable)
-        org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTableOrBuilder {
-      // Construct using org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.newBuilder()
+        // @@protoc_insertion_point(builder_implements:org.jetbrains.kotlin.serialization.RequireLanguageVersionTable)
+        org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTableOrBuilder {
+      // Construct using org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -21015,7 +21015,7 @@ public final class ProtoBuf {
 
       public Builder clear() {
         super.clear();
-        info_ = java.util.Collections.emptyList();
+        requirement_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -21024,38 +21024,38 @@ public final class ProtoBuf {
         return create().mergeFrom(buildPartial());
       }
 
-      public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable getDefaultInstanceForType() {
-        return org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance();
+      public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable getDefaultInstanceForType() {
+        return org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance();
       }
 
-      public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable build() {
-        org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable result = buildPartial();
+      public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable build() {
+        org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable buildPartial() {
-        org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable result = new org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable(this);
+      public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable buildPartial() {
+        org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable result = new org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          info_ = java.util.Collections.unmodifiableList(info_);
+          requirement_ = java.util.Collections.unmodifiableList(requirement_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.info_ = info_;
+        result.requirement_ = requirement_;
         return result;
       }
 
-      public Builder mergeFrom(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable other) {
-        if (other == org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable.getDefaultInstance()) return this;
-        if (!other.info_.isEmpty()) {
-          if (info_.isEmpty()) {
-            info_ = other.info_;
+      public Builder mergeFrom(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable other) {
+        if (other == org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable.getDefaultInstance()) return this;
+        if (!other.requirement_.isEmpty()) {
+          if (requirement_.isEmpty()) {
+            requirement_ = other.requirement_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureInfoIsMutable();
-            info_.addAll(other.info_);
+            ensureRequirementIsMutable();
+            requirement_.addAll(other.requirement_);
           }
           
         }
@@ -21072,11 +21072,11 @@ public final class ProtoBuf {
           org.jetbrains.kotlin.protobuf.CodedInputStream input,
           org.jetbrains.kotlin.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable parsedMessage = null;
+        org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfoTable) e.getUnfinishedMessage();
+          parsedMessage = (org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersionTable) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -21087,140 +21087,140 @@ public final class ProtoBuf {
       }
       private int bitField0_;
 
-      private java.util.List<org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo> info_ =
+      private java.util.List<org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion> requirement_ =
         java.util.Collections.emptyList();
-      private void ensureInfoIsMutable() {
+      private void ensureRequirementIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          info_ = new java.util.ArrayList<org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo>(info_);
+          requirement_ = new java.util.ArrayList<org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion>(requirement_);
           bitField0_ |= 0x00000001;
          }
       }
 
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public java.util.List<org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo> getInfoList() {
-        return java.util.Collections.unmodifiableList(info_);
+      public java.util.List<org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion> getRequirementList() {
+        return java.util.Collections.unmodifiableList(requirement_);
       }
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public int getInfoCount() {
-        return info_.size();
+      public int getRequirementCount() {
+        return requirement_.size();
       }
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo getInfo(int index) {
-        return info_.get(index);
+      public org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion getRequirement(int index) {
+        return requirement_.get(index);
       }
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public Builder setInfo(
-          int index, org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo value) {
+      public Builder setRequirement(
+          int index, org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureInfoIsMutable();
-        info_.set(index, value);
+        ensureRequirementIsMutable();
+        requirement_.set(index, value);
 
         return this;
       }
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public Builder setInfo(
-          int index, org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Builder builderForValue) {
-        ensureInfoIsMutable();
-        info_.set(index, builderForValue.build());
+      public Builder setRequirement(
+          int index, org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Builder builderForValue) {
+        ensureRequirementIsMutable();
+        requirement_.set(index, builderForValue.build());
 
         return this;
       }
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public Builder addInfo(org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo value) {
+      public Builder addRequirement(org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureInfoIsMutable();
-        info_.add(value);
+        ensureRequirementIsMutable();
+        requirement_.add(value);
 
         return this;
       }
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public Builder addInfo(
-          int index, org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo value) {
+      public Builder addRequirement(
+          int index, org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureInfoIsMutable();
-        info_.add(index, value);
+        ensureRequirementIsMutable();
+        requirement_.add(index, value);
 
         return this;
       }
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public Builder addInfo(
-          org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Builder builderForValue) {
-        ensureInfoIsMutable();
-        info_.add(builderForValue.build());
+      public Builder addRequirement(
+          org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Builder builderForValue) {
+        ensureRequirementIsMutable();
+        requirement_.add(builderForValue.build());
 
         return this;
       }
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public Builder addInfo(
-          int index, org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo.Builder builderForValue) {
-        ensureInfoIsMutable();
-        info_.add(index, builderForValue.build());
+      public Builder addRequirement(
+          int index, org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion.Builder builderForValue) {
+        ensureRequirementIsMutable();
+        requirement_.add(index, builderForValue.build());
 
         return this;
       }
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public Builder addAllInfo(
-          java.lang.Iterable<? extends org.jetbrains.kotlin.serialization.ProtoBuf.SinceKotlinInfo> values) {
-        ensureInfoIsMutable();
+      public Builder addAllRequirement(
+          java.lang.Iterable<? extends org.jetbrains.kotlin.serialization.ProtoBuf.RequireLanguageVersion> values) {
+        ensureRequirementIsMutable();
         org.jetbrains.kotlin.protobuf.AbstractMessageLite.Builder.addAll(
-            values, info_);
+            values, requirement_);
 
         return this;
       }
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public Builder clearInfo() {
-        info_ = java.util.Collections.emptyList();
+      public Builder clearRequirement() {
+        requirement_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
 
         return this;
       }
       /**
-       * <code>repeated .org.jetbrains.kotlin.serialization.SinceKotlinInfo info = 1;</code>
+       * <code>repeated .org.jetbrains.kotlin.serialization.RequireLanguageVersion requirement = 1;</code>
        */
-      public Builder removeInfo(int index) {
-        ensureInfoIsMutable();
-        info_.remove(index);
+      public Builder removeRequirement(int index) {
+        ensureRequirementIsMutable();
+        requirement_.remove(index);
 
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:org.jetbrains.kotlin.serialization.SinceKotlinInfoTable)
+      // @@protoc_insertion_point(builder_scope:org.jetbrains.kotlin.serialization.RequireLanguageVersionTable)
     }
 
     static {
-      defaultInstance = new SinceKotlinInfoTable(true);
+      defaultInstance = new RequireLanguageVersionTable(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:org.jetbrains.kotlin.serialization.SinceKotlinInfoTable)
+    // @@protoc_insertion_point(class_scope:org.jetbrains.kotlin.serialization.RequireLanguageVersionTable)
   }
 
   public interface PackageFragmentOrBuilder extends 

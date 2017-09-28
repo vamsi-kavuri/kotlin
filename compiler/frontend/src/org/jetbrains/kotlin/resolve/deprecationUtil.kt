@@ -36,7 +36,7 @@ import org.jetbrains.kotlin.resolve.calls.checkers.shouldWarnAboutDeprecatedModF
 import org.jetbrains.kotlin.resolve.descriptorUtil.fqNameSafe
 import org.jetbrains.kotlin.serialization.deserialization.descriptors.DeserializedClassDescriptor
 import org.jetbrains.kotlin.serialization.deserialization.descriptors.DeserializedMemberDescriptor
-import org.jetbrains.kotlin.serialization.deserialization.descriptors.SinceKotlinInfo
+import org.jetbrains.kotlin.serialization.deserialization.descriptors.RequireLanguageVersion
 import org.jetbrains.kotlin.storage.StorageManager
 import org.jetbrains.kotlin.types.KotlinType
 import org.jetbrains.kotlin.types.TypeUtils
@@ -99,12 +99,12 @@ private data class DeprecatedByOverridden(private val deprecations: Collection<D
     internal fun additionalMessage() = "Overrides deprecated member in '${DescriptorUtils.getContainingClass(target)!!.fqNameSafe.asString()}'"
 }
 
-private data class DeprecatedBySinceKotlinInfo(
-        private val sinceKotlinInfo: SinceKotlinInfo,
+private data class DeprecatedByRequireLanguageVersion(
+        val requireLanguageVersion: RequireLanguageVersion,
         override val target: DeclarationDescriptor
 ) : Deprecation {
     override val deprecationLevel: DeprecationLevelValue
-        get() = when (sinceKotlinInfo.level) {
+        get() = when (requireLanguageVersion.level) {
             DeprecationLevel.WARNING -> WARNING
             DeprecationLevel.ERROR -> ERROR
             DeprecationLevel.HIDDEN -> HIDDEN
@@ -112,8 +112,8 @@ private data class DeprecatedBySinceKotlinInfo(
 
     override val message: String?
         get() {
-            val message = sinceKotlinInfo.message
-            val errorCode = sinceKotlinInfo.errorCode
+            val message = requireLanguageVersion.message
+            val errorCode = requireLanguageVersion.errorCode
             if (message == null && errorCode == null) return null
 
             return buildString {
@@ -128,9 +128,6 @@ private data class DeprecatedBySinceKotlinInfo(
                 }
             }
         }
-
-    val sinceKotlinVersion: SinceKotlinInfo.Version
-        get() = sinceKotlinInfo.version
 }
 
 private data class DeprecatedTypealiasByAnnotation(
@@ -152,12 +149,12 @@ internal fun createDeprecationDiagnostic(
 ): Diagnostic {
     val targetOriginal = deprecation.target.original
     return when (deprecation) {
-        is DeprecatedBySinceKotlinInfo -> {
+        is DeprecatedByRequireLanguageVersion -> {
             val factory = when (deprecation.deprecationLevel) {
-                WARNING -> Errors.SINCE_KOTLIN_INFO_DEPRECATION
-                ERROR, HIDDEN -> Errors.SINCE_KOTLIN_INFO_DEPRECATION_ERROR
+                WARNING -> Errors.REQUIRE_LANGUAGE_VERSION_DEPRECATION
+                ERROR, HIDDEN -> Errors.REQUIRE_LANGUAGE_VERSION_DEPRECATION_ERROR
             }
-            factory.on(element, targetOriginal, deprecation.sinceKotlinVersion,
+            factory.on(element, targetOriginal, deprecation.requireLanguageVersion.version,
                        languageVersionSettings.languageVersion to deprecation.message)
         }
 
@@ -289,15 +286,15 @@ class DeprecationResolver(
                 result.add(deprecation)
             }
 
-            val sinceKotlinInfo =
-                    (target as? DeserializedMemberDescriptor)?.sinceKotlinInfo
-                    ?: (target as? DeserializedClassDescriptor)?.sinceKotlinInfo
-            if (sinceKotlinInfo != null) {
+            val requireLanguageVersion =
+                    (target as? DeserializedMemberDescriptor)?.requireLanguageVersion
+                    ?: (target as? DeserializedClassDescriptor)?.requireLanguageVersion
+            if (requireLanguageVersion != null) {
                 // We're using ApiVersion because it's convenient to compare versions, "-api-version" is not involved in any way
                 // TODO: usage of ApiVersion is confusing here, refactor
-                if (ApiVersion.createBySinceKotlinInfo(sinceKotlinInfo) >
+                if (ApiVersion.createByRequireLanguageVersion(requireLanguageVersion) >
                     ApiVersion.createByLanguageVersion(languageVersionSettings.languageVersion)) {
-                    result.add(DeprecatedBySinceKotlinInfo(sinceKotlinInfo, target))
+                    result.add(DeprecatedByRequireLanguageVersion(requireLanguageVersion, target))
                 }
             }
         }
