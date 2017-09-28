@@ -26,6 +26,7 @@ import org.jetbrains.kotlin.jvm.compiler.LoadDescriptorUtil
 import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.resolve.lazy.JvmResolveUtil
 import org.jetbrains.kotlin.resolve.scopes.getDescriptorsFiltered
+import org.jetbrains.kotlin.serialization.deserialization.descriptors.DeserializedClassDescriptor
 import org.jetbrains.kotlin.serialization.deserialization.descriptors.DeserializedMemberDescriptor
 import org.jetbrains.kotlin.serialization.deserialization.descriptors.RequireLanguageVersion
 import org.jetbrains.kotlin.test.ConfigurationKind
@@ -57,11 +58,11 @@ class RequireLanguageVersionTest : TestCaseWithTmpdir() {
         )
 
         fun check(descriptor: DeclarationDescriptor) {
-            if (descriptor !is DeserializedMemberDescriptor) {
-                throw AssertionError("Not a deserialized descriptor: $descriptor")
-            }
-
-            val requirement = descriptor.requireLanguageVersion ?: throw AssertionError("No RequireLanguageVersion for $descriptor")
+            val requirement = when (descriptor) {
+                is DeserializedMemberDescriptor -> descriptor.requireLanguageVersion
+                is DeserializedClassDescriptor -> descriptor.requireLanguageVersion
+                else -> throw AssertionError("Unknown descriptor: $descriptor")
+            } ?: throw AssertionError("No RequireLanguageVersion for $descriptor")
 
             assertEquals(expectedRequireLanguageVersion, requirement.version)
             assertEquals(expectedLevel, requirement.level)
@@ -106,6 +107,17 @@ class RequireLanguageVersionTest : TestCaseWithTmpdir() {
                "test.async3",
                "test.async4",
                "test.asyncVal"
+       )
+    }
+
+    fun testViaAnnotation() {
+        doTest("compiler/testData/requireLanguageVersion/viaAnnotation.kt",
+               RequireLanguageVersion.Version(1, 1), DeprecationLevel.WARNING, "message", 42,
+               "test.Klass",
+               "test.Konstructor.<init>",
+               "test.Typealias",
+               "test.function",
+               "test.property"
        )
     }
 }
