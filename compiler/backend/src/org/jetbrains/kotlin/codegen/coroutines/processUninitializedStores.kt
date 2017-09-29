@@ -18,6 +18,8 @@ package org.jetbrains.kotlin.codegen.coroutines
 
 import org.jetbrains.kotlin.codegen.optimization.common.*
 import org.jetbrains.kotlin.codegen.optimization.fixStack.peek
+import org.jetbrains.kotlin.codegen.optimization.fixStack.peekWords
+import org.jetbrains.kotlin.codegen.optimization.fixStack.top
 import org.jetbrains.org.objectweb.asm.Opcodes
 import org.jetbrains.org.objectweb.asm.Type
 import org.jetbrains.org.objectweb.asm.tree.*
@@ -81,6 +83,8 @@ class UninitializedStoresProcessor(private val methodNode: MethodNode, private v
                 "fake", methodNode, interpreter,
                 this::UninitializedNewValueFrame
         ).analyze()
+
+        interpreter.analyzePopInstructions(methodNode, frames)
 
         for ((index, insn) in methodNode.instructions.toArray().withIndex()) {
             val frame = frames[index] ?: continue
@@ -257,6 +261,32 @@ class UninitializedStoresProcessor(private val methodNode: MethodNode, private v
             }
 
             return super.merge(v, w)
+        }
+
+        fun analyzePopInstructions(methodNode: MethodNode, frames: Array<Frame<BasicValue>?>) {
+            val insns = methodNode.instructions.toArray()
+            for (i in frames.indices) {
+                val frame = frames[i] ?: continue
+                val insn = insns[i]
+                when (insn.opcode) {
+                    Opcodes.POP -> analyzePop(insn, frame)
+                    Opcodes.POP2 -> analyzePop2(insn, frame)
+                }
+            }
+        }
+
+        private fun analyzePop(insn: AbstractInsnNode, frame: Frame<BasicValue>) {
+            processPoppedValue(insn, frame.top() ?: error("Stack underflow on POP"))
+        }
+
+        private fun processPoppedValue(popInsn: AbstractInsnNode, value: BasicValue) {
+            val uninitializedNewValue = value as? UninitializedNewValue ?: return
+            uninitializedValueUsageInfo[uninitializedNewValue.newInsn]!!.storeInsns.add(popInsn)
+        }
+
+        private fun analyzePop2(insn: AbstractInsnNode, frame: Frame<BasicValue>) {
+            val top2 = frame.peekWords(2) ?: error("Stack underflow on POP2")
+            top2.forEach { processPoppedValue(insn, it) }
         }
     }
 }
